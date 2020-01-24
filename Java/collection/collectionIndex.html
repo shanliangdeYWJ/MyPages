@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <link rel="stylesheet" href="./css/collectionIndex.css">
+
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>容器</h1>
+  <p>接口</p>
+  <p>常见的类</p>
+  <div class="view" style="width: 500px; height: 300px;">
+    <div class="rect get_title" data-title="Collection 是接口 含义是容器，可以直接把对象丢进来，集合是对象，能装其他对象的一种对象" style="left: 23%;">
+      Collection</div>
+
+    <div class="rect get_title" data-title="Set 无序不重复，后面的会把前面的覆盖掉" style="top: 60px;left: 5%;">Set</div>
+    <div class="rect get_title" data-title="List 有序可重复，一个对象可以重复往里面装，因为他有顺序，通过地址区分" style="top: 60px;left: 40%;">List
+    </div>
+    <div class="rect get_title" data-title="Map 称作键值对 {key: value} 可以通过一个对象找另一个对象 键不能重复" style="top: 60px;right: 5%;">
+      Map</div>
+
+    <div class="rect get_title" data-title="Set 的底层实现" style="top: 120px;left: 5%;">HashSet</div>
+    <div class="rect get_title" data-title="Map 的底层实现" style="top: 120px;right: 5%;">HashMap</div>
+
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+<xmp theme="united" style="display:none;">
+```java
+
+
+```
+</xmp>
+  
+  <script>
+    // $(function() {
+    //           // var x = 10;
+    //           // var y = 20;
+    //           var x = 5;
+    //           var y = 5;  // x和y表示了title框与元素之间横轴和纵轴之间的距离
+    //           $(".title").mouseover(function(e) {
+    //               this.myTitle = this.title; //获取默认的title
+    //               this.title = ""; //获取后将默认的清空
+    //               var title = "<div id='title'>" + this.myTitle + "<\/div>"; //创建新的 div 元素，在CSS样式中已定义样式
+    //               $("body").append(title); //把它追加到文档中
+    //               $("#title").css({
+    //                   "top": (e.pageY + y) + "px",
+    //                   "left": (e.pageX + x) + "px",
+    //                   "z-index":1
+    //               }).show("fast"); //设置x坐标和y坐标，并且快速显示
+    //           }).mouseout(function() {
+    //               this.title = this.myTitle;
+    //               $("#title").remove(); //光标离开时移除 
+    //           })
+    //       })
+  </script>
+</body>
+  <!-- 页面md格式的引入脚本 -->
+  <script src="../../public/js/strapdownjs/strapdown.js"></script>
+</html>

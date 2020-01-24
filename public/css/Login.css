@@ -1,0 +1,133 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.welcome {
+  background-image: linear-gradient(#99FFCC, #99FFFF);
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.login-box {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-box-form {
+  width: 200px;
+  height: 200px;
+  
+}
+
+.username,
+.password,
+.submit {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  border-radius: 0.6em;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  margin: 5px;
+  z-index: 1;
+}
+.submit {
+  background: #00CCCC;
+}
+ul li {
+  position: absolute;
+  border: 1px solid #fff;
+  width: 30px;
+  height: 30px;
+  list-style: none;
+  background: #fff;
+  opacity: 0;
+}
+
+.square li {
+  top: 50vh;
+  left: 25vw;
+  animation: square 10s linear infinite;
+}
+.square li:nth-child(2) {
+  top: 80vh;
+  left: 10vw;
+  animation-delay: 2s;
+}
+.square li:nth-child(3) {
+  top: 80vh;
+  left: 85vw;
+  animation-delay: 4s;
+}
+.square li:nth-child(4) {
+  top: 10vh;
+  left: 75vw;
+  animation-delay: 6s;
+}
+.square li:nth-child(5) {
+  top: 10vh;
+  left: 10vw;
+  animation-delay: 8s;
+}
+@keyframes square {
+  0%{
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(2) rotate(1000deg);
+    opacity: 0;/* 不透明度为0 即完全透明 */
+  }
+}
+
+.circle li {
+  bottom: 0;
+  left: 15vw;
+  animation: circle 10s linear infinite;
+}
+.circle li:nth-child(2) {
+  left: 35vw;
+  animation-delay: 2s;
+
+}
+.circle li:nth-child(3) {
+  left: 55vw;
+  animation-delay: 6s;
+}
+.circle li:nth-child(4) {
+  left: 75vw;
+  animation-delay: 4s;
+}
+.circle li:nth-child(5) {
+  left: 90vw;
+  animation-delay: 8s;
+}
+
+@keyframes circle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+    bottom: 0;
+    border-radius: 0;
+  }
+  100% {
+    transform: scale(2.5) rotate(1000deg);
+    opacity: 0;
+    bottom: 90vh;
+    border-radius: 50%;
+  }
+}

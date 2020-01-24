@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Dex cannot parse version 52 byte code</title>
+</head>
+<body>
+  <h1> Dex cannot parse version 52 byte code</h1>
+  <p></p>
+<xmp theme="united" style="display:none;">
+  <a href="https://blog.csdn.net/qq_36238577/article/details/80581193">点击查看原文报错, 大概是因为我依赖的第三方是在java8编译的，但是我工具的只是java1.7，所以就出现了这个问题</a>
+```gradle
+Error:Error converting bytecode to dex:
+Cause: Dex cannot parse version 52 byte code.
+This is caused by library dependencies that have been compiled using Java 8 or above.
+If you are using the 'java' gradle plugin in a library submodule add 
+targetCompatibility = '1.7'
+sourceCompatibility = '1.7'
+to that submodule's build.gradle file.
+```
+<p>1.在app  build.gradle中加入一下代码：</p>
+```gradle
+compileOptions {
+  sourceCompatibility JavaVersion.VERSION_1_7
+  targetCompatibility JavaVersion.VERSION_1_7
+}
+
+```
+<p> 2.最后加入下面代码完成：</p>
+```gradle
+dexOptions {
+  preDexLibraries false
+  jumboMode true
+  javaMaxHeapSize "2g"
+  incremental false
+}
+
+```
+<p> 最后贴出 build.gradle中完整代码：</p>
+```gradle
+apply plugin: 'com.android.application'
+ 
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.shixia.gsvideo"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled = true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        dexOptions {
+            preDexLibraries false
+            jumboMode true
+            javaMaxHeapSize "2g"
+            incremental false
+        }
+    }
+ 
+ 
+ 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+ 
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //完整版引入
+    compile 'com.shuyu:GSYVideoPlayer:5.0.0-beta'
+}
+
+
+```
+</xmp>
+</body>
+<script src="../../public/js/strapdownjs/strapdown.js"></script>
+</html>
